@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#050A14" />
+
+  <!-- ─── SEO Meta ─── -->
+  <title>LinkGuard — Scan Links Before You Click</title>
+  <meta name="description" content="LinkGuard checks every URL for malicious redirects, phishing threats, and security risks before you click — all inside Telegram." />
+  <meta name="keywords" content="link scanner, URL checker, phishing protection, malicious link detector, Telegram bot security" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://yourdomain.com/" />
+
+  <!-- ─── Open Graph ─── -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com/" />
+  <meta property="og:title" content="LinkGuard — Scan Links Before You Click" />
+  <meta property="og:description" content="Real-time URL security scanning powered by Telegram. No sign-up. No personal data. Just safe browsing." />
+  <meta property="og:image" content="https://yourdomain.com/assets/og-image.jpg" />
+  <meta property="og:site_name" content="LinkGuard" />
+
+  <!-- ─── Twitter Card ─── -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LinkGuard — Scan Links Before You Click" />
+  <meta name="twitter:description" content="Real-time URL security scanning powered by Telegram." />
+  <meta name="twitter:image" content="https://yourdomain.com/assets/og-image.jpg" />
+
+  <!-- ─── Structured Data ─── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "LinkGuard",
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "Telegram",
+    "description": "Real-time URL and link scanning service that detects malicious links, phishing attempts, and insecure redirects.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "url": "https://yourdomain.com"
+  }
+  </script>
+
+  <!-- ─── Fonts ─── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- ─── AOS ─── -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+  <!-- ─── Lucide Icons ─── -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+
+  <!-- ─── Stylesheet ─── -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ░░ NOISE GRAIN OVERLAY ░░ -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ░░ AMBIENT GLOW ORBS ░░ -->
+  <div class="ambient" aria-hidden="true">
+    <div class="orb orb--1"></div>
+    <div class="orb orb--2"></div>
+    <div class="orb orb--3"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════ -->
+  <header class="nav" id="nav" role="banner">
+    <div class="container nav__inner">
+
+      <a href="/" class="nav__logo" aria-label="LinkGuard Home">
+        <i data-lucide="shield-check" class="nav__logo-icon"></i>
+        <span>Link<strong>Guard</strong></span>
+      </a>
+
+      <nav class="nav__links" role="navigation" aria-label="Main navigation">
+        <a href="#how-it-works">How It Works</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <a href="https://t.me/yourbotname" target="_blank" rel="noopener noreferrer"
+         class="btn btn--sm btn--primary nav__cta" aria-label="Start scanning links on Telegram">
+        <i data-lucide="send" class="btn__icon"></i>
+        Start Scanning
+      </a>
+
+      <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="nav__mobile" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-modal="true" hidden>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://t.me/yourbotname" target="_blank" rel="noopener noreferrer"
+         class="btn btn--primary btn--full">
+        <i data-lucide="send" class="btn__icon"></i>
+        Start Scanning
+      </a>
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- ═══════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════ -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+
+        <div class="hero__badge" data-aos="fade-down" data-aos-delay="100">
+          <i data-lucide="zap"></i>
+          <span>Real-time threat detection — powered by Telegram</span>
+        </div>
+
+        <h1 class="hero__title" id="hero-title" data-aos="fade-up" data-aos-delay="200">
+          Never Click a
+          <span class="hero__title-accent">
+            <span class="word-cycle" id="wordCycle">Malicious</span>
+          </span>
+          <br />Link Again
+        </h1>
+
+        <p class="hero__subtitle" data-aos="fade-up" data-aos-delay="350">
+          LinkGuard scans every URL for phishing, redirects, and security threats in real-time — straight from your Telegram chat. No accounts. No data harvesting.
+        </p>
+
+        <div class="hero__actions" data-aos="fade-up" data-aos-delay="450">
+          <a href="https://t.me/yourbotname" target="_blank" rel="noopener noreferrer"
+             class="btn btn--primary btn--lg">
+            <i data-lucide="send" class="btn__icon"></i>
+            Launch in Telegram
+          </a>
+          <a href="#how-it-works" class="btn btn--ghost btn--lg">
+            <i data-lucide="play-circle" class="btn__icon"></i>
+            See How It Works
+          </a>
+        </div>
+
+        <div class="hero__stats" data-aos="fade-up" data-aos-delay="550">
+          <div class="stat">
+            <span class="stat__number" data-count="148320">0</span>
+            <span class="stat__label">Links Scanned</span>
+          </div>
+          <div class="stat__divider" aria-hidden="true"></div>
+          <div class="stat">
+            <span class="stat__number" data-count="9241">0</span>
+            <span class="stat__label">Threats Blocked</span>
+          </div>
+          <div class="stat__divider" aria-hidden="true"></div>
+          <div class="stat">
+            <span class="stat__number" data-count="99">0</span>
+            <span class="stat__label">% Uptime</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Hero Scroll Indicator -->
+      <div class="hero__scroll" aria-hidden="true">
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         TRUST BAR
+    ═══════════════════════════════════════ -->
+    <section class="trust" aria-label="Featured in">
+      <div class="container">
+        <p class="trust__label" data-aos="fade-up">Trusted by security-conscious users and teams at</p>
+        <div class="trust__logos" data-aos="fade-up" data-aos-delay="100">
+          <span class="trust__logo"><i data-lucide="building-2"></i> TechCorp</span>
+          <span class="trust__logo"><i data-lucide="briefcase"></i> StartupIO</span>
+          <span class="trust__logo"><i data-lucide="globe"></i> WebSafe Co</span>
+          <span class="trust__logo"><i data-lucide="layers"></i> StackLabs</span>
+          <span class="trust__logo"><i data-lucide="cpu"></i> ByteShield</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         HOW IT WORKS
+    ═══════════════════════════════════════ -->
+    <section class="how" id="how-it-works" aria-labelledby="how-title">
+      <div class="container">
+
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-tag">
+            <i data-lucide="workflow"></i> Process
+          </span>
+          <h2 class="section-title" id="how-title">Three Steps to<br/><em>Absolute Clarity</em></h2>
+          <p class="section-desc">From paste to protected in under two seconds.</p>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="how__step" data-aos="fade-up">
+          <div class="how__content">
+            <div class="how__step-num" aria-hidden="true">01</div>
+            <h3 class="how__step-title">
+              <i data-lucide="link"></i>
+              Send Your Link
+            </h3>
+            <p class="how__step-desc">
+              Paste any suspicious URL directly into the LinkGuard Telegram bot. No copying, no switching apps — it lives right inside your chats.
+            </p>
+            <ul class="how__step-features">
+              <li><i data-lucide="check-circle"></i> Works with any URL format</li>
+              <li><i data-lucide="check-circle"></i> Shortened links expanded automatically</li>
+              <li><i data-lucide="check-circle"></i> No account or sign-up required</li>
+            </ul>
+          </div>
+          <div class="how__mockup">
+            <div class="phone-frame" aria-hidden="true">
+              <div class="phone-frame__inner">
+                <div class="phone-frame__notch"></div>
+                <div class="phone-screen">
+                  <div class="chat-ui">
+                    <div class="chat-bubble chat-bubble--bot">
+                      <i data-lucide="shield-check"></i>
+                      <span>Hi! Send me a link to scan.</span>
+                    </div>
+                    <div class="chat-bubble chat-bubble--user typing" id="typingBubble">
+                      <span class="typing-text" id="typingText"></span>
+                      <span class="typing-cursor"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="how__step how__step--reverse" data-aos="fade-up">
+          <div class="how__content">
+            <div class="how__step-num" aria-hidden="true">02</div>
+            <h3 class="how__step-title">
+              <i data-lucide="scan-search"></i>
+              Instant Analysis
+            </h3>
+            <p class="how__step-desc">
+              LinkGuard unravels the full redirect chain, checks security headers, and cross-references the destination against Google Web Risk and other threat intelligence databases.
+            </p>
+            <ul class="how__step-features">
+              <li><i data-lucide="check-circle"></i> Full redirect chain traced</li>
+              <li><i data-lucide="check-circle"></i> Security header inspection</li>
+              <li><i data-lucide="check-circle"></i> Cross-referenced with Google Web Risk</li>
+            </ul>
+          </div>
+          <div class="how__mockup">
+            <div class="phone-frame" aria-hidden="true">
+              <div class="phone-frame__inner">
+                <div class="phone-frame__notch"></div>
+                <div class="phone-screen">
+                  <div class="scan-ui">
+                    <div class="scan-ring">
+                      <div class="scan-ring__inner">
+                        <i data-lucide="scan-search"></i>
+                      </div>
+                    </div>
+                    <p class="scan-status" id="scanStatus">Analyzing redirects…</p>
+                    <div class="scan-progress">
+                      <div class="scan-progress__bar" id="scanBar"></div>
+                    </div>
+                    <div class="scan-checks">
+                      <div class="scan-check" id="check1"><i data-lucide="loader-2" class="spin"></i> Redirect chain</div>
+                      <div class="scan-check" id="check2"><i data-lucide="loader-2" class="spin"></i> Security headers</div>
+                      <div class="scan-check" id="check3"><i data-lucide="loader-2" class="spin"></i> Threat database</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="how__step" data-aos="fade-up">
+          <div class="how__content">
+            <div class="how__step-num" aria-hidden="true">03</div>
+            <h3 class="how__step-title">
+              <i data-lucide="file-shield"></i>
+              Your Security Report
+            </h3>
+            <p class="how__step-desc">
+              Get a clean, readable report showing the verdict, detected threats, full redirect path, and a safety rating. Know exactly what's behind every link.
+            </p>
+            <ul class="how__step-features">
+              <li><i data-lucide="check-circle"></i> Human-readable threat summary</li>
+              <li><i data-lucide="check-circle"></i> Safety score and verdict</li>
+              <li><i data-lucide="check-circle"></i> Full redirect path exposed</li>
+            </ul>
+          </div>
+          <div class="how__mockup">
+            <div class="phone-frame" aria-hidden="true">
+              <div class="phone-frame__inner">
+                <div class="phone-frame__notch"></div>
+                <div class="phone-screen">
+                  <div class="report-ui">
+                    <div class="report-verdict report-verdict--safe">
+                      <i data-lucide="shield-check"></i>
+                      <span>SAFE</span>
+                    </div>
+                    <div class="report-score">
+                      <div class="score-ring">
+                        <svg viewBox="0 0 60 60">
+                          <circle class="score-ring__bg" cx="30" cy="30" r="25"/>
+                          <circle class="score-ring__fill" cx="30" cy="30" r="25" id="scoreRing"/>
+                        </svg>
+                        <span class="score-ring__number" id="scoreNum">0</span>
+                      </div>
+                      <p>Safety Score</p>
+                    </div>
+                    <div class="report-rows">
+                      <div class="report-row">
+                        <i data-lucide="git-branch"></i>
+                        <span>2 Redirects</span>
+                        <i data-lucide="check" class="report-row__ok"></i>
+                      </div>
+                      <div class="report-row">
+                        <i data-lucide="lock"></i>
+                        <span>HTTPS Enforced</span>
+                        <i data-lucide="check" class="report-row__ok"></i>
+                      </div>
+                      <div class="report-row">
+                        <i data-lucide="database"></i>
+                        <span>No Threat Found</span>
+                        <i data-lucide="check" class="report-row__ok"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         FEATURES
+    ═══════════════════════════════════════ -->
+    <section class="features" id="features" aria-labelledby="features-title">
+      <div class="container">
+
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-tag">
+            <i data-lucide="sparkles"></i> Features
+          </span>
+          <h2 class="section-title" id="features-title">Everything You Need to<br/><em>Stay Protected</em></h2>
+        </div>
+
+        <div class="features__grid">
+          <div class="feature-card feature-card--large" data-aos="fade-up" data-aos-delay="0">
+            <div class="feature-card__icon">
+              <i data-lucide="git-merge"></i>
+            </div>
+            <h3>Full Redirect Chain</h3>
+            <p>Trace every hop a URL makes before landing. LinkGuard exposes hidden intermediaries that disguise the true destination of a link.</p>
+            <div class="feature-card__glow" aria-hidden="true"></div>
+          </div>
+
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-card__icon">
+              <i data-lucide="shield-alert"></i>
+            </div>
+            <h3>Phishing Detection</h3>
+            <p>Cross-referenced against Google Web Risk and active phishing databases in real-time.</p>
+            <div class="feature-card__glow" aria-hidden="true"></div>
+          </div>
+
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="feature-card__icon">
+              <i data-lucide="lock-keyhole"></i>
+            </div>
+            <h3>HTTPS Verification</h3>
+            <p>Verifies SSL certificates and flags unencrypted connections that put your data at risk.</p>
+            <div class="feature-card__glow" aria-hidden="true"></div>
+          </div>
+
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-card__icon">
+              <i data-lucide="timer"></i>
+            </div>
+            <h3>Under 2 Seconds</h3>
+            <p>Results delivered instantly. Scans complete before you could even finish second-guessing the link.</p>
+            <div class="feature-card__glow" aria-hidden="true"></div>
+          </div>
+
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="250">
+            <div class="feature-card__icon">
+              <i data-lucide="user-x"></i>
+            </div>
+            <h3>Zero Personal Data</h3>
+            <p>No email. No account. No tracking. All you need is your Telegram ID.</p>
+            <div class="feature-card__glow" aria-hidden="true"></div>
+          </div>
+
+          <div class="feature-card feature-card--large" data-aos="fade-up" data-aos-delay="300">
+            <div class="feature-card__icon">
+              <i data-lucide="file-text"></i>
+            </div>
+            <h3>Detailed Report</h3>
+            <p>Every scan generates a structured security report: safety verdict, redirect path, header analysis, and threat breakdown — clear and readable, no jargon.</p>
+            <div class="feature-card__glow" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         PRICING
+    ═══════════════════════════════════════ -->
+    <section class="pricing" id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-tag">
+            <i data-lucide="tag"></i> Pricing
+          </span>
+          <h2 class="section-title" id="pricing-title">Simple, Honest<br/><em>Pricing</em></h2>
+          <p class="section-desc">Start free. Upgrade when you need more.</p>
+        </div>
+
+        <div class="pricing__grid">
+
+          <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="pricing-card__tier">Free</div>
+            <div class="pricing-card__price">
+              <span class="pricing-card__amount">$0</span>
+              <span class="pricing-card__period">forever</span>
+            </div>
+            <ul class="pricing-card__features">
+              <li><i data-lucide="check-circle"></i> 10 scans per day</li>
+              <li><i data-lucide="check-circle"></i> Basic threat detection</li>
+              <li><i data-lucide="check-circle"></i> Redirect chain (3 hops)</li>
+              <li><i data-lucide="check-circle"></i> Safety verdict</li>
+              <li class="disabled"><i data-lucide="x-circle"></i> Detailed security report</li>
+              <li class="disabled"><i data-lucide="x-circle"></i> Priority processing</li>
+            </ul>
+            <a href="https://t.me/yourbotname" target="_blank" rel="noopener noreferrer"
+               class="btn btn--ghost btn--full">
+              <i data-lucide="send" class="btn__icon"></i>
+              Get Started Free
+            </a>
+          </div>
+
+          <div class="pricing-card pricing-card--featured" data-aos="fade-up" data-aos-delay="200">
+            <div class="pricing-card__badge">Most Popular</div>
+            <div class="pricing-card__tier">Essential</div>
+            <div class="pricing-card__price">
+              <span class="pricing-card__amount">$4</span>
+              <span class="pricing-card__period">/ month</span>
+            </div>
+            <ul class="pricing-card__features">
+              <li><i data-lucide="check-circle"></i> 50 scans per day</li>
+              <li><i data-lucide="check-circle"></i> Full threat detection</li>
+              <li><i data-lucide="check-circle"></i> Redirect chain (unlimited)</li>
+              <li><i data-lucide="check-circle"></i> Detailed security report</li>
+              <li><i data-lucide="check-circle"></i> HTTPS & header analysis</li>
+              <li class="disabled"><i data-lucide="x-circle"></i> Priority processing</li>
+            </ul>
+            <a href="https://t.me/yourbotname" target="_blank" rel="noopener noreferrer"
+               class="btn btn--primary btn--full">
+              <i data-lucide="zap" class="btn__icon"></i>
+              Start Essential
+            </a>
+          </div>
+
+          <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="pricing-card__tier">Premium</div>
+            <div class="pricing-card__price">
+              <span class="pricing-card__amount">$9</span>
+              <span class="pricing-card__period">/ month</span>
+            </div>
+            <ul class="pricing-card__features">
+              <li><i data-lucide="check-circle"></i> 100 scans per day</li>
+              <li><i data-lucide="check-circle"></i> Full threat detection</li>
+              <li><i data-lucide="check-circle"></i> Redirect chain (unlimited)</li>
+              <li><i data-lucide="check-circle"></i> Detailed security report</li>
+              <li><i data-lucide="check-circle"></i> HTTPS & header analysis</li>
+              <li><i data-lucide="check-circle"></i> Priority processing</li>
+            </ul>
+            <a href="https://t.me/yourbotname" target="_blank" rel="noopener noreferrer"
+               class="btn btn--ghost btn--full">
+              <i data-lucide="rocket" class="btn__icon"></i>
+              Go Premium
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         TESTIMONIALS
+    ═══════════════════════════════════════ -->
+    <section class="testimonials" id="testimonials" aria-labelledby="testimonials-title">
+      <div class="container">
+
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-tag">
+            <i data-lucide="message-square-quote"></i> Testimonials
+          </span>
+          <h2 class="section-title" id="testimonials-title">People Who Sleep<br/><em>Better at Night</em></h2>
+        </div>
+
+        <div class="testimonials__grid">
+
+          <blockquote class="testimonial-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="testimonial-card__stars" aria-label="5 star review">
+              <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+              <i data-lucide="star"></i><i data-lucide="star"></i>
+            </div>
+            <p>"I got sent a suspicious link in a group chat. LinkGuard flagged it as a phishing attempt before I even clicked. Saved me from a potential disaster."</p>
+            <footer class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-hidden="true">JW</div>
+              <div>
+                <strong>Jasper W.</strong>
+                <span>Head of Sales, BeAi</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card testimonial-card--accent" data-aos="fade-up" data-aos-delay="100">
+            <div class="testimonial-card__stars" aria-label="5 star review">
+              <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+              <i data-lucide="star"></i><i data-lucide="star"></i>
+            </div>
+            <p>"As a developer I share a lot of links. Now I double-check anything that looks odd. The detailed security report is exactly what a technical person wants."</p>
+            <footer class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-hidden="true">LB</div>
+              <div>
+                <strong>Lucas B.</strong>
+                <span>Lead AI Engineer</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="testimonial-card__stars" aria-label="5 star review">
+              <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+              <i data-lucide="star"></i><i data-lucide="star"></i>
+            </div>
+            <p>"The simplicity is what gets me. Paste. Wait two seconds. Done. I've recommended it to my whole team."</p>
+            <footer class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-hidden="true">LC</div>
+              <div>
+                <strong>Lena C.</strong>
+                <span>UX Designer</span>
+              </div>
+            </footer>
+          </blockquote>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         FAQ
+    ═══════════════════════════════════════ -->
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-tag">
+            <i data-lucide="help-circle"></i> FAQ
+          </span>
+          <h2 class="section-title" id="faq-title">Answers to the<br/><em>Obvious Questions</em></h2>
+        </div>
+
+        <div class="faq__list" data-aos="fade-up">
+
+          <details class="faq-item">
+            <summary class="faq-item__q">
+              <span>What exactly does LinkGuard check?</span>
+              <i data-lucide="chevron-down" class="faq-item__icon" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-item__a">
+              <p>LinkGuard checks the full redirect chain of any URL — every intermediate hop is exposed. It also inspects HTTP security headers, verifies SSL certificates, and cross-checks the final destination against Google Web Risk and other threat intelligence databases.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__q">
+              <span>How fast are the scan results?</span>
+              <i data-lucide="chevron-down" class="faq-item__icon" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-item__a">
+              <p>Most scans complete in under 2 seconds. Complex links with multiple redirects may take slightly longer, but you'll always have your result within 5 seconds.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__q">
+              <span>Do I need to create an account?</span>
+              <i data-lucide="chevron-down" class="faq-item__icon" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-item__a">
+              <p>No. LinkGuard works entirely through Telegram. Your Telegram ID is all that's needed — no email, no password, no personal information required unless you opt in for communications.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__q">
+              <span>How do I pay for a plan?</span>
+              <i data-lucide="chevron-down" class="faq-item__icon" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-item__a">
+              <p>Payments are handled directly through the Telegram bot interface via Stripe. It's seamless — you never leave Telegram to upgrade or manage your subscription.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__q">
+              <span>What happens if a malicious link is found?</span>
+              <i data-lucide="chevron-down" class="faq-item__icon" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-item__a">
+              <p>You'll immediately receive a security report flagging the specific threat — phishing attempt, malware host, suspicious redirect, or insecure connection. The report tells you what was found and why the link is considered dangerous.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__q">
+              <span>Is my data private?</span>
+              <i data-lucide="chevron-down" class="faq-item__icon" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-item__a">
+              <p>Yes. We do not store or sell the URLs you submit. Each scan is processed ephemerally — once the report is returned, the URL is discarded. You can read our full Privacy Policy for details.</p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         CTA
+    ═══════════════════════════════════════ -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-inner" data-aos="fade-up">
+          <div class="cta-inner__glow" aria-hidden="true"></div>
+          <i data-lucide="shield-check" class="cta-icon" aria-hidden="true"></i>
+          <h2 class="cta-title" id="cta-title">Start Protecting Yourself<br/>in 30 Seconds</h2>
+          <p>Open the bot. Send a link. That's it.</p>
+          <a href="https://t.me/yourbotname" target="_blank" rel="noopener noreferrer"
+             class="btn btn--primary btn--xl">
+            <i data-lucide="send" class="btn__icon"></i>
+            Open LinkGuard on Telegram
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+
+      <div class="footer__brand">
+        <a href="/" class="nav__logo footer__logo" aria-label="LinkGuard Home">
+          <i data-lucide="shield-check" class="nav__logo-icon"></i>
+          <span>Link<strong>Guard</strong></span>
+        </a>
+        <p>Reduce uncertainty when clicking links. Always know where you're going.</p>
+        <div class="footer__socials">
+          <a href="https://t.me/yourbotname" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+            <i data-lucide="send"></i>
+          </a>
+          <a href="#" aria-label="Twitter / X">
+            <i data-lucide="twitter"></i>
+          </a>
+          <a href="#" aria-label="GitHub">
+            <i data-lucide="github"></i>
+          </a>
+        </div>
+      </div>
+
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <div class="footer__col">
+          <h4>Product</h4>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="https://t.me/yourbotname" target="_blank" rel="noopener noreferrer">Launch Bot</a>
+        </div>
+        <div class="footer__col">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Blog</a>
+          <a href="#">Contact Us</a>
+        </div>
+        <div class="footer__col">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </nav>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container">
+        <p>© <span id="year"></span> LinkGuard. All rights reserved.</p>
+        <p>Built with precision. Designed to protect.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ─── Back to Top ─── -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" hidden>
+    <i data-lucide="arrow-up"></i>
+  </button>
+
+
+  <!-- ─── AOS JS ─── -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- ─── Main JS ─── -->
+  <script src="script.js"></script>
+
+</body>
+</html>
