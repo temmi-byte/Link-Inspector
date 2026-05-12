@@ -24,7 +24,7 @@
   --text-2:      #8A9DC0;
   --text-3:      #5A6E8A;
 
-  --font-head:   'Syne', sans-serif;
+  --font-head:   'DM Sans', sans-serif;
   --font-body:   'Figtree', sans-serif;
 
   --radius-sm:   8px;
@@ -316,7 +316,7 @@ details summary::-webkit-details-marker { display: none; }
 
 .hero__title {
   font-family: var(--font-head);
-  font-size: clamp(2rem, 10vw, 5rem);
+  font-size: clamp(2rem, 9vw, 3rem);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.025em;
